@@ -1,0 +1,91 @@
+/* Styles for the opening overlay, 
+visible when the page is first opened. */
+
+/* Content Wrappers */
+#opening-main-display {
+	margin-top: 100px;
+
+	width: 600px;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	padding: 20px;
+}
+
+/* Logo */
+.logo {
+	width: auto;
+	height: 200px;
+	
+	margin: 0px auto;
+    width: 550px;
+}
+
+/* Search Bar */
+.open-search {
+	margin: 0px auto;
+    width: 550px;
+}
+
+/* Search Buttons */
+#buttons {
+	margin: auto;
+	margin-top: 25px;
+
+	width: 400px;
+}
+
+.open-search-button {
+	margin: 0px;
+	padding-bottom: 0px;
+
+	width: 150px;
+	height: 40px;
+
+	font-size: 16px;
+}
+
+/* Tutorial Cards */
+#show-tutorial {
+    margin-top: 10px;
+}
+
+#tutorial {
+	border-top: 1px solid #ddd;
+
+	width: 400px;
+
+	margin-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-top: 40px;
+
+    text-align: center;
+}
+
+#tutorial p {
+	margin-bottom: 20px;
+
+	font-size: 18px;
+
+	text-align: center;
+}
+
+.tutorial-card {
+	margin-left: auto;
+	margin-right: auto;
+
+	text-align: center;
+
+    width: 300px;
+
+    padding: 10px;
+    margin-bottom: 10px;
+
+    border: 1px solid #ddd;
+    border-radius: 2px;
+
+    display: block;
+}

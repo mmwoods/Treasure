@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Treasure</title>
+
+		<link href="css/reset.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+
+		<link href="css/openingOverlay.css" rel="stylesheet" type="text/css">
+		<link href="css/treasure.css" rel="stylesheet" type="text/css">
+
+		<link href="css/hide.css" rel="stylesheet" type="text/css">
+
+		<!--Online link to Google Web Fonts used, however extra font family is in CSS-->
+		<link href='https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:400,300italic,300' rel='stylesheet' type='text/css'>
+
+        <!--Online link and local file provided for jQuery: http://jquery.com/download/-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/chart.js"></script>
+
+		<script type="text/javascript" src="js/openingOverlay.js"></script>
+		<script type="text/javascript" src="js/treasure.js"></script>
+	</head>
+	<body>
+		<!-- This is just a cheeky overlay to display when loading, it is removed completely as soon as they start typing anything, or run a random "Feeling Lucky" search -->
+		<div id="opening-main-display-wrapper" class="full-screen">
+			<div id="opening-main-display">
+				<div id="banner-logo" class="logo">
+					<img src="images/logo.png" class="logo" alt="Treasure Logo">
+				</div>
+				
+				<div class="open-search">
+					<form id="open-search-form">
+						<div id="open-search-wrapper" class="search-input-wrap">
+							<input id="open-search-box" class="search-input" type="input" placeholder="Search Trove Articles..." method="get">
+						</div>
+						
+						<div id="buttons">
+							<center>
+								<input id="open-search-submit" name="search" class="button open-search-button" type="submit" value="Treasure Search">
+								<input id="open-lucky-submit" class="button open-search-button" type="submit" value="Random Search">
+                                <input id="show-tutorial" class="button open-search-button" type="button" value="Show Tutorial" onClick="toggleTutorial();" />
+							</center>
+						</div>
+					</form>
+				</div>
+
+                <div id="tutorial" class="hidden">
+                	<p> Treasure is a visual search application that uses data from Trove (National Library of Australia). </p>
+
+                    <img src="images/card1.png" class="tutorial-card" alt="Clicking on a graph applies a filter">
+                    <img src="images/card2.png" class="tutorial-card" alt="Once applied, filters appear in the filter bar">
+                    <img src="images/card3.png" class="tutorial-card" alt="Applying a filter restricts search results">
+
+                    <input id="hide-tutorial" class="button open-search-button" type="button" value="Hide Tutorial" onClick="toggleTutorial();" />
+                </div>
+			</div>
+		</div>
+
+
+		<!-- The main content frame, initially hidden -->
+		<div id="main" class="full-screen">
+			<div id="page-banner" class="logo-banner">
+				<p class="logo-text"> treasure </p>
+			</div>
+            
+            <!--<div id="sidebar"><h1>Search Again</h1></div> -->
+            <div id="main-content-wrapper" class="wrapper-no-filters">
+				<div id="left-column">
+					<div id="main-content">
+						<div class="content-segment">
+							<div id="search-wrapper">
+								<form action="#" id="search-treasure">
+									<div id="search-input-wrapper" class="search-input-wrap search-item">
+										<input id="search-box" class="search-input" type="input" placeholder="Search Trove Articles..." method="get">
+									</div>
+
+									<div id="search-button-wrapper" class="search-item">
+										<button type="submit">
+											<div id="search-button">  
+												Search
+											</div>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+		                
+		                <div id="loading-overlay" class="hidden">
+		                    <div id="loading-spinner" class="spinner">
+		                        <div class="rect1"></div>
+		                        <div class="rect2"></div>
+		                        <div class="rect3"></div>
+		                        <div class="rect4"></div>
+		                        <div class="rect5"></div>
+		                    </div>
+		                </div>
+
+						<div id="graphs-no-results" class="content-segment hidden">
+							<h2> There were not enough results to show any graphs, please make a new search. </h2>
+						</div>
+								
+						<div id="graphs" class="content-segment">
+							<div id="decade" class="graph graph-full inner-content-segment">
+								<h1>Year of Publication</h1>
+								<canvas id="decade-graph" width="926" height="250"></canvas>
+							</div>
+							
+							<div id="availability" class="graph graph-left graph-half inner-content-segment">
+								<h1>Availability</h1>
+								<canvas id="availability-graph" width="457" height="250"></canvas>
+							</div>
+
+							<div id="australian" class="graph graph-half inner-content-segment">
+								<h1>Published In Australia</h1>
+								<canvas id="australian-graph" width="457" height="250"></canvas>
+							</div>
+
+							<div id="format" class="graph graph-full inner-content-segment">
+								<h1>Format</h1>
+								<canvas id="format-graph" width="926" height="250"></canvas>
+							</div>
+						</div>
+
+		                <div id="results" class="content-segment hidden"> 
+		                    <div id="results-inner">
+		                    </div>
+		                    <div id="article-loading-spinner" class="spinner hidden">
+		                        <div class="rect1"></div>
+		                        <div class="rect2"></div>
+		                        <div class="rect3"></div>
+		                    </div>
+						</div>
+					</div>
+				</div>
+
+				<div id="right-column" class="hidden">
+					<div id="filters" class="content-segment">
+	                    <h1 id="heading">Filters</h1>
+						<!-- These are added in JavaScript -->   
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
